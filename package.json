@@ -1,0 +1,22 @@
+{
+  "name": "app-complete-template",
+  "version": "3.0.0",
+  "description": "The lightness PHP framework",
+  "license": "MIT",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/horizom/app-complete-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/horizom/app-complete-template/issues"
+  },
+  "homepage": "https://github.com/horizom/app-complete-template#readme",
+  "keywords": [],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.49"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "name": "horizom/app-complete-template",
+  "description": "The lightness PHP framework.",
+  "type": "project",
+  "version": "3.0.1",
+  "homepage": "https://horizom.github.io",
+  "license": "MIT",
+  "keywords": [
+    "horizon",
+    "horizom",
+    "framework",
+    "php"
+  ],
+  "authors": [
+    {
+      "name": "Horizom Team",
+      "email": "horizom.team@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.0",
+    "doctrine/dbal": "^3.3",
+    "horizom/auth": "^3.0",
+    "horizom/core": "^3.0",
+    "horizom/http": "^3.0",
+    "horizom/routing": "^3.0",
+    "horizom/session": "^3.0",
+    "horizom/validation": "^3.0",
+    "illuminate/database": "^8.40",
+    "league/flysystem": "^3.0",
+    "middlewares/https": "^2.0",
+    "middlewares/negotiation": "^2.0",
+    "middlewares/payload": "^3.0",
+    "middlewares/robots": "^2.0",
+    "middlewares/trailing-slash": "^2.0",
+    "middlewares/www": "^2.0",
+    "nesbot/carbon": "^2.59",
+    "phpmailer/phpmailer": "^6.6",
+    "symfony/http-foundation": "^5.4",
+    "symfony/mime": "^5.4",
+    "vlucas/phpdotenv": "^5.3"
+  },
+  "require-dev": {
+    "robmorgan/phinx": "^0.12.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "bootstrap/helpers.php"
+    ]
+  },
+  "scripts": {
+    "start": "php -S localhost:8000 -t public",
+    "migration-create": "phinx create",
+    "migration-migrate": "phinx migrate",
+    "migration-migrate-dry": "phinx migrate --dry-run",
+    "migration-status": "phinx status",
+    "migration-rollback": "phinx rollback",
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
