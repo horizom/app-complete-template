@@ -21,3 +21,7 @@
     </div>
 </div>
 @endsection
+
+@section('script')
+    <script src="{{ asset('static/js/app.js') }}"></script>
+@endsection

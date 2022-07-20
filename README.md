@@ -1,11 +1,5 @@
 <p align="center"><img src="https://horizom.github.io/img/horizom-logo-color.svg" width="400"></p>
 
-<p align="center">
-<a href="https://packagist.org/packages/horizom/app"><img src="https://poser.pugx.org/horizom/app/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/horizom/app"><img src="https://poser.pugx.org/horizom/app/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/horizom/app"><img src="https://poser.pugx.org/horizom/app/license.svg" alt="License"></a>
-</p>
-
 ## About Horizom
 
 Horizom is a light web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling.

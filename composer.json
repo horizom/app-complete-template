@@ -2,7 +2,7 @@
   "name": "horizom/app-complete-template",
   "description": "The lightness PHP framework.",
   "type": "project",
-  "version": "3.0.1",
+  "version": "3.0.0",
   "homepage": "https://horizom.github.io",
   "license": "MIT",
   "keywords": [
@@ -13,8 +13,8 @@
   ],
   "authors": [
     {
-      "name": "Horizom Team",
-      "email": "horizom.team@gmail.com"
+      "name": "Roland Edi",
+      "email": "lambirou225@gmail.com"
     }
   ],
   "require": {
