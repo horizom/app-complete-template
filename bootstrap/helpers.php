@@ -1,11 +1,43 @@
 <?php
 
-use App\Providers\Storage;
+use App\Providers\Storage\Storage;
 use Carbon\Carbon;
 use Horizom\Auth\Auth;
 use Horizom\Validation\Validation;
 use Illuminate\Database\Capsule\Manager as DB;
 use Illuminate\Support\Str;
+
+/**
+ * Get storage helper
+ */
+function storage(string $disk = 'local')
+{
+    return Storage::disk($disk);
+}
+
+/**
+ * Get the path to the storage folder
+ */
+function storage_path(string $path)
+{
+    return HORIZOM_ROOT . '/resources/storage/' . $path;
+}
+
+/**
+ * Get the path to the public folder
+ */
+function public_path(string $path)
+{
+    return HORIZOM_ROOT . '/public/' . $path;
+}
+
+/**
+ * Get the path to the resources folder
+ */
+function resources_path(string $path)
+{
+    return HORIZOM_ROOT . '/resources/' . $path;
+}
 
 /**
  * Get a fluent database query builder instance.
@@ -15,6 +47,9 @@ function db(string $table)
     return DB::table($table);
 }
 
+/**
+ * Create a carbon instance from a string.
+ */
 function carbon(string $date): Carbon
 {
     return Carbon::parse($date)->locale('fr_FR');
@@ -26,14 +61,6 @@ function carbon(string $date): Carbon
 function moment(string $date, string $format)
 {
     return carbon($date)->isoFormat($format);
-}
-
-/**
- * Get storage helper
- */
-function storage(string $disk = 'local')
-{
-    return new Storage($disk);
 }
 
 /**

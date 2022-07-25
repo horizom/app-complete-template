@@ -112,21 +112,4 @@ return [
     */
 
     'app.robots' => env('APP_ROBOTS', false),
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Storage Configuration
-    |--------------------------------------------------------------------------
-    |
-    */
-
-    'storage.filesystems' => [
-        "local" => [
-            'driver' => 'local',
-            'root' => HORIZOM_ROOT . '/public/contents',
-            'url' => url('contents'),
-            'visibility' => 'public',
-        ],
-    ]
 ];

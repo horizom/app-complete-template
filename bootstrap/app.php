@@ -58,6 +58,7 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 $app->configure('app');
 $app->configure('auth');
 $app->configure('database');
+$app->configure('filesystems');
 $app->configure('mail');
 
 /*
