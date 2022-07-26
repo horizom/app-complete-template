@@ -4,6 +4,27 @@
  * @var \Horizom\Core\App $app
  */
 
+/*
+|--------------------------------------------------------------------------
+| Storage initialization
+|--------------------------------------------------------------------------
+*/
+
+$fsDefault = (string) config('filesystems.default');
+$fsDisks = (array) config('filesystems.disks');
+$fsLinks = (array) config('filesystems.links');
+$storage = new \App\Providers\Storage\Storage($fsDefault, $fsDisks);
+
+// Register auth storage
+$app->container()->set(\App\Providers\Storage\Storage::class, $storage);
+
+// Initialize symlinks
+foreach ($fsLinks as $link => $target) {
+    if (file_exists($target) && !file_exists($link)) {
+        symlink($target, $link);
+    }
+}
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +34,12 @@
 
 $connections = config('database.connections');
 $default = config('database.default');
-$dbManager = new \Illuminate\Database\Capsule\Manager();
-$dbManager->addConnection($connections[$default]);
-$dbManager->setAsGlobal();
-$dbManager->bootEloquent();
+$manager = new \Illuminate\Database\Capsule\Manager();
+$manager->addConnection($connections[$default]);
+$manager->setAsGlobal();
+$manager->bootEloquent();
 
-$platform = $dbManager->getConnection()->getDoctrineSchemaManager()->getDatabasePlatform();
+$platform = $manager->getConnection()->getDoctrineSchemaManager()->getDatabasePlatform();
 $platform->registerDoctrineTypeMapping('enum', 'string');
 
 

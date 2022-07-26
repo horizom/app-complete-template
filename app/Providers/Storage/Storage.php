@@ -18,6 +18,11 @@ class Storage
         }
     }
 
+    public static function initialize(string $default = null, array $configs = [])
+    {
+        return new self($default, $configs);
+    }
+
     /**
      * Get filesystem disk
      */

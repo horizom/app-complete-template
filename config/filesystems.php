@@ -28,9 +28,19 @@ return [
     'filesystems.disks' => [
         'local' => [
             'driver' => 'local',
-            'root' => public_path('contents'),
+            'root' => storage_path(),
             'url' => url('contents'),
             'visibility' => 'public',
+            'permissions' => [
+                'file' => [
+                    'public' => 0644,
+                    'private' => 0604,
+                ],
+                'dir' => [
+                    'public' => 0755,
+                    'private' => 7604,
+                ],
+            ],
             'throw' => false,
         ],
         's3' => [

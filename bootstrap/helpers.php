@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\Storage\FilesystemAdapter;
 use App\Providers\Storage\Storage;
 use Carbon\Carbon;
 use Horizom\Auth\Auth;
@@ -10,33 +11,37 @@ use Illuminate\Support\Str;
 /**
  * Get storage helper
  */
-function storage(string $disk = 'local')
+function storage(string $disk = 'local'): FilesystemAdapter
 {
-    return Storage::disk($disk);
+    $storage = app()->get(Storage::class);
+    return $storage::disk($disk);
 }
 
 /**
  * Get the path to the storage folder
  */
-function storage_path(string $path)
+function storage_path(string $path = '')
 {
-    return HORIZOM_ROOT . '/resources/storage/' . $path;
+    $base = HORIZOM_ROOT . '/resources/storage';
+    return $path ? $base . '/' . $path : $base;
 }
 
 /**
  * Get the path to the public folder
  */
-function public_path(string $path)
+function public_path(string $path = '')
 {
-    return HORIZOM_ROOT . '/public/' . $path;
+    $base = HORIZOM_ROOT . '/public';
+    return $path ? $base . '/' . $path : $base;
 }
 
 /**
  * Get the path to the resources folder
  */
-function resources_path(string $path)
+function resources_path(string $path = '')
 {
-    return HORIZOM_ROOT . '/resources/' . $path;
+    $base = HORIZOM_ROOT . '/resources';
+    return $path ? $base . '/' . $path : $base;
 }
 
 /**
